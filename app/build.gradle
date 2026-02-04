@@ -118,8 +118,8 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:${CONSTRAINT_VERSION}"
 //    compile "com.android.support:multidex:${MULTIDEX_VERSION}"
 
-    implementation "com.thirtydegreesray:dataautoaccess:${DATAAUTOACCESS_VERSION}"
-    annotationProcessor "com.thirtydegreesray:dataautoaccess-compiler:${DATAAUTOACCESS_VERSION}"
+    // implementation "com.thirtydegreesray:dataautoaccess:${DATAAUTOACCESS_VERSION}"
+// // annotationProcessor "com.thirtydegreesray:dataautoaccess-compiler:${DATAAUTOACCESS_VERSION}"
 
     implementation "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERSION}"
