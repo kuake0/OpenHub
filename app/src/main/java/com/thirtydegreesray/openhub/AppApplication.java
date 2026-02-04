@@ -44,6 +44,15 @@ public class AppApplication extends Application {
         //init application
         long startTime = System.currentTimeMillis();
         AppData.INSTANCE.getSystemDefaultLocal();
+                // Set a global uncaught exception handler to log crashes
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                Logger.e(e, "Uncaught exception in thread " + t.getName());
+            }
+        });
+
+        
         //apply language for application context, bugly used it
         AppUtils.updateAppLanguage(getApplicationContext());
         initLogger();
