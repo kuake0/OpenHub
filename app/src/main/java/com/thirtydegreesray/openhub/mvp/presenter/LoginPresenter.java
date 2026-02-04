@@ -118,13 +118,27 @@ public class LoginPresenter extends BasePresenter<ILoginContract.View>
 
     @Override
     public void handleOauth(Intent intent) {
-        Uri uri = intent.getData();
-        if (uri != null) {
-            String code = uri.getQueryParameter("code");
-            String state = uri.getQueryParameter("state");
-            getToken(code, state);
+        try {
+            Uri uri = (intent != null) ? intent.getData() : null;
+            if (uri != null) {
+                String code = uri.getQueryParameter("code");
+                String state = uri.getQueryParameter("state");
+                if (!StringUtils.isBlank(code) && !StringUtils.isBlank(state)) {
+                    getToken(code, state);
+                } else {
+                    // invalid callback parameters
+                    mView.onGetTokenError("Invalid OAuth callback.");
+                }
+            } else {
+                // missing data
+                mView.onGetTokenError("OAuth callback data is missing.");
+            }
+        } catch (Exception e) {
+            // handle exception gracefully
+            mView.onGetTokenError(getErrorTip(e));
         }
     }
+
 
     @Override
     public void getUserInfo(final BasicToken basicToken) {
