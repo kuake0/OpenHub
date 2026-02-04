@@ -8,7 +8,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath 'com.novoda:gradle-build-properties-plugin:0.4.1'
+        classpath 'com.novoda.build-properties:com.novoda.build-properties.gradle.plugin:0.4.1'
     }
 }
 
